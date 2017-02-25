@@ -1,0 +1,39 @@
+
+.MODEL nfet NMOS (LEVEL=1 VTO= 0.7 LAMBDA=0.01 )
+.MODEL pfet PMOS (LEVEL=1 VTO=-0.8 LAMBDA=0.01 )
+
+
+M1000 vdd orta orta vdd pfet w=200 l=2
++  ad=120 pd=52 as=100 ps=500
+M1001 Vout orta vdd vdd pfet w=200 l=2
++  ad=100 pd=50 as=0 ps=0
+M1002 alt input1 a_35_5# Gnd nfet w=4 l=200
++  ad=44 pd=38 as=20 ps=18
+M1003 a_86_5# input2 alt Gnd nfet w=4 l=200
++  ad=20 pd=18 as=0 ps=0
+M1004 alt vb1 a_61_n14# Gnd nfet w=40 l=2
++  ad=0 pd=0 as=24 ps=20
+M1005 a_61_n14# vb2 gnd Gnd nfet w=40 l=2
++  ad=0 pd=0 as=20 ps=18
+
+C0 vdd orta 2.6fF
+C1 input2 Gnd 12.0fF
+C2 input1 Gnd 12.0fF
+C3 Vout Gnd 3.4fF
+C4 orta Gnd 8.2fF
+
+
+V0 vdd gnd 5
+V1 input1 input2 Ac 1m
+V2 input2 gnd 2.5
+*V3 Vcm gnd 2.49
+
+V4 vb1 gnd 0.85
+V5 vb2 gnd 0.85
+
+*.step param X 1 500
+.ac dec 10 1Hz 1GHz
+*.PLOT DC V(vout)
+*.PRINT TRAN V(vout)
+*.tran 1000m
+.end

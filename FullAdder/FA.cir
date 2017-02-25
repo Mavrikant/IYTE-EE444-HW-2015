@@ -1,0 +1,32 @@
+
+.model nfet NMOS
+.model pfet PMOS
+
+M1000 a_3_67# a_n17_4# Cout Gnd nfet w=6 l=2
++  ad=42 pd=26 as=42 ps=26
+M1001 Cin a_n17_4# Cout Vdd pfet w=12 l=2
++  ad=84 pd=38 as=84 ps=38
+M1002 Vdd B a_n17_4# Vdd pfet w=12 l=2
++  ad=84 pd=38 as=84 ps=38
+M1003 Sum a_n17_4# Vdd Vdd pfet w=12 l=2
++  ad=84 pd=38 as=84 ps=38
+M1004 a_n17_4# A B Gnd nfet w=6 l=2
++  ad=42 pd=26 as=42 ps=26
+M1005 Gnd B a_n17_4# Gnd nfet w=6 l=2
++  ad=42 pd=26 as=42 ps=26
+M1006 Sum a_n17_4# Gnd Gnd nfet w=6 l=2
++  ad=42 pd=26 as=42 ps=26
+M1007 a_n17_4# Cin Sum Gnd nfet w=6 l=2
++  ad=42 pd=26 as=42 ps=26
+
+
+
+V0 Vdd Gnd 5
+V1 A   Gnd PULSE(0 5 0 1f 1f 1 2 )
+V2 B   Gnd PULSE(0 5 0 1f 1f 2 4 )
+V3 Cin Gnd PULSE(0 5 0 1f 1f 4 8 )
+
+
+.tran  8s
+.end
+

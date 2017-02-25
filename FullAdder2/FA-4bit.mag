@@ -1,0 +1,56 @@
+magic
+tech scmos
+timestamp 1460994230
+<< metal1 >>
+rect -270 146 -266 155
+rect -130 146 -126 155
+rect 10 146 14 155
+rect 150 146 154 155
+rect 163 132 200 136
+rect -423 103 -394 107
+rect 164 103 199 107
+rect 169 79 200 83
+rect -370 22 -366 35
+rect -362 22 -358 35
+rect -230 22 -226 35
+rect -222 22 -218 35
+rect -90 22 -86 35
+rect -82 22 -78 35
+rect 50 22 54 35
+rect 58 22 62 35
+<< m2contact >>
+rect 165 79 169 83
+use FA  FA_3
+timestamp 1460994016
+transform 1 0 -349 0 1 66
+box -46 -31 94 80
+use FA  FA_2
+timestamp 1460994016
+transform 1 0 -209 0 1 66
+box -46 -31 94 80
+use FA  FA_1
+timestamp 1460994016
+transform 1 0 -69 0 1 66
+box -46 -31 94 80
+use FA  FA_0
+timestamp 1460994016
+transform 1 0 71 0 1 66
+box -46 -31 94 80
+<< labels >>
+rlabel metal1 198 134 198 134 7 Vdd
+rlabel metal1 198 81 198 81 7 Gnd
+rlabel metal1 -421 105 -421 105 3 Cout3
+rlabel metal1 -360 24 -360 24 1 B3
+rlabel metal1 -368 24 -368 24 1 A3
+rlabel metal1 -228 24 -228 24 1 A2
+rlabel metal1 -220 24 -220 24 1 B2
+rlabel metal1 -88 24 -88 24 1 A1
+rlabel metal1 -80 24 -80 24 1 B1
+rlabel metal1 52 24 52 24 1 A0
+rlabel metal1 60 24 60 24 1 B0
+rlabel metal1 152 153 152 153 5 Sum0
+rlabel metal1 12 153 12 153 5 Sum1
+rlabel metal1 -128 153 -128 153 5 Sum2
+rlabel metal1 -268 153 -268 153 5 Sum3
+rlabel metal1 197 105 197 105 7 Cin0
+<< end >>

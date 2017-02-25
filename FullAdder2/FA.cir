@@ -1,0 +1,93 @@
+
+.model nfet NMOS
+.model pfet PMOS
+
+M1000 Vdd a_n36_27# Cout Vdd pfet w=8 l=2
++  ad=232 pd=138 as=40 ps=26
+M1001 Vdd A a_n25_46# Vdd pfet w=8 l=2
++  ad=0 pd=0 as=88 ps=54
+M1002 a_n25_46# B Vdd Vdd pfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1003 a_n36_27# Cin a_n25_46# Vdd pfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1004 a_6_46# A a_n36_27# Vdd pfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1005 Vdd B a_6_46# Vdd pfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 a_22_46# Cin Vdd Vdd pfet w=8 l=2
++  ad=96 pd=56 as=0 ps=0
+M1007 Vdd A a_22_46# Vdd pfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1008 a_22_46# B Vdd Vdd pfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 a_46_13# a_n36_27# a_22_46# Vdd pfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1010 a_54_46# A a_46_13# Vdd pfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1011 a_62_46# B a_54_46# Vdd pfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1012 Vdd Cin a_62_46# Vdd pfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1013 Sum a_46_13# Vdd Vdd pfet w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1014 Gnd a_n36_27# Cout Gnd nfet w=4 l=2
++  ad=116 pd=98 as=20 ps=18
+M1015 Gnd A a_n25_13# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=44 ps=38
+M1016 a_n25_13# B Gnd Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1017 a_n36_27# Cin a_n25_13# Gnd nfet w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+M1018 a_6_13# A a_n36_27# Gnd nfet w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+M1019 Gnd B a_6_13# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1020 a_22_13# Cin Gnd Gnd nfet w=4 l=2
++  ad=48 pd=40 as=0 ps=0
+M1021 Gnd A a_22_13# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1022 a_22_13# B Gnd Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1023 a_46_13# a_n36_27# a_22_13# Gnd nfet w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+M1024 a_54_13# A a_46_13# Gnd nfet w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+M1025 a_62_13# B a_54_13# Gnd nfet w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+M1026 Gnd Cin a_62_13# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1027 Sum a_46_13# Gnd Gnd nfet w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+C0 Vdd A 4.8fF
+C1 Vdd Cin 3.6fF
+C2 Vdd Sum 4.1fF
+C3 Vdd a_n36_27# 2.6fF
+C4 Vdd B 4.8fF
+C5 Gnd a_n25_13# 2.4fF
+C6 Vdd a_46_13# 2.4fF
+C7 A B 2.2fF
+C8 Gnd a_22_13# 2.5fF
+C9 a_46_13# Gnd 3.0fF
+C10 Vdd a_n25_46# 4.3fF
+C11 Vdd a_22_46# 4.3fF
+C12 a_22_13# Gnd 3.3fF
+C13 a_n25_13# Gnd 3.3fF
+C14 Gnd Gnd 27.0fF
+C15 Sum Gnd 5.6fF
+C16 Cout Gnd 2.6fF
+C17 a_46_13# Gnd 14.6fF
+C18 Cin Gnd 62.9fF
+C19 B Gnd 64.6fF
+C20 A Gnd 65.0fF
+C21 a_n36_27# Gnd 27.0fF
+
+
+V0 Vdd Gnd 5
+V1 A   Gnd PULSE(0 5 0 1f 1f 1 2 )
+V2 B   Gnd PULSE(0 5 0 1f 1f 2 4 )
+V3 Cin Gnd PULSE(0 5 0 1f 1f 4 8 )
+
+
+.tran  8s
+.end
+

@@ -1,0 +1,46 @@
+
+.MODEL NFET NMOS (LEVEL=1 LAMBDA=0.04 KP=110u VTO=+0.7)
+.MODEL PFET PMOS (LEVEL=1 LAMBDA=0.05 KP= 50u VTO=-0.7)
+
+
+M1000 vdd orta orta vdd pfet w=30 l=2
++  ad=3196 pd=842 as=150 ps=70
+M1001 orta2 orta vdd vdd pfet w=30 l=2
++  ad=150 pd=70 as=0 ps=0
+M1002 vdd orta2 Vout vdd pfet w=377 l=4
++  ad=0 pd=0 as=3016 ps=770
+M1003 alt input1 orta Gnd nfet w=6 l=2
++  ad=81 pd=52 as=30 ps=22
+M1004 orta2 input2 alt Gnd nfet w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1005 alt Vbias vss Gnd nfet w=9 l=2
++  ad=0 pd=0 as=185 ps=94
+M1006 Vout Vbias vss Gnd nfet w=28 l=2
++  ad=140 pd=66 as=0 ps=0
+
+C0 Vout orta2 3050.989990fF
+C1 Vout gnd 10134.000000fF
+C2 vdd orta2 11.8fF
+C3 vdd orta 2.6fF
+C4 vss Gnd 29.5fF
+C5 Vbias Gnd 34.5fF
+C6 gnd Gnd 165.5fF
+C7 alt Gnd 2.8fF
+C8 input2 Gnd 2.1fF
+C9 input1 Gnd 2.1fF
+C10 Vout Gnd 700.0fF
+C11 orta2 Gnd 78.2fF
+C12 orta Gnd 8.7fF
+
+
+V0 vdd Gnd 2.5
+V1 vss Gnd -2.5
+V2 input1 Vofset ac 1
+V4 input2 Vofset 0
+V5 Vbias vss 1
+V6 Vofset Gnd 1
+
+.ac oct 100 1 1000meg
+*.tran 0.05
+.backanno
+.end

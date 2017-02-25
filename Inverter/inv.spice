@@ -1,0 +1,11 @@
+* SPICE3 file created from inv.ext - technology: scmos
+
+.option scale=1u
+
+M1000 vout vin vcc vcc pfet w=12 l=2
++  ad=72 pd=36 as=72 ps=36
+M1001 vout vin gnd Gnd nfet w=6 l=2
++  ad=36 pd=24 as=36 ps=24
+C0 gnd Gnd 3.8fF
+C1 vout Gnd 2.1fF
+C2 vin Gnd 4.9fF

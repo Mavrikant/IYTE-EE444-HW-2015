@@ -1,0 +1,54 @@
+* SPICE3 file created from FDD.ext - technology: scmos
+
+.model nfet NMOS
+.model pfet PMOS
+
+M1000 a_n24_12# Clk Vdd Vdd pfet w=8 l=2
++  ad=48 pd=28 as=272 ps=124
+M1001 a_n6_12# a_n24_12# D Vdd pfet w=8 l=2
++  ad=64 pd=32 as=48 ps=28
+M1002 Vdd Q1 a_n6_12# Vdd pfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1003 Q1 a_n6_12# Vdd Vdd pfet w=16 l=2
++  ad=112 pd=48 as=0 ps=0
+M1004 a_24_12# Clk Q1 Vdd pfet w=8 l=2
++  ad=64 pd=32 as=0 ps=0
+M1005 Vdd Q2 a_24_12# Vdd pfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 Q2 a_24_12# Vdd Vdd pfet w=16 l=2
++  ad=96 pd=44 as=0 ps=0
+M1007 a_n24_12# Clk Gnd Gnd nfet w=4 l=2
++  ad=24 pd=20 as=136 ps=84
+M1008 a_n6_12# Clk D Gnd nfet w=4 l=2
++  ad=32 pd=24 as=24 ps=20
+M1009 Gnd Q1 a_n6_12# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1010 Q1 a_n6_12# Gnd Gnd nfet w=8 l=2
++  ad=56 pd=32 as=0 ps=0
+M1011 a_24_12# a_n24_12# Q1 Gnd nfet w=4 l=2
++  ad=32 pd=24 as=0 ps=0
+M1012 Gnd Q2 a_24_12# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1013 Q2 a_24_12# Gnd Gnd nfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+C0 a_n24_12# Vdd 6.7fF
+C1 Clk a_n6_12# 3.0fF
+C2 Clk Vdd 5.7fF
+C3 Clk a_24_12# 3.1fF
+C4 Gnd Gnd 19.2fF
+C5 Q2 Gnd 11.9fF
+C6 D Gnd 6.2fF
+C7 Q1 Gnd 10.6fF
+C8 Clk Gnd 17.8fF
+C9 a_n24_12# Gnd 19.1fF
+C10 a_24_12# Gnd 10.6fF
+C11 a_n6_12# Gnd 10.6fF
+
+
+V1 Vdd  Gnd 5
+V2 D    Gnd PULSE(0 5 0.5m 1p 1p 1m 3m )
+V3 Clk  Gnd PULSE(0 5 1m 1p 1p 1m 2m )
+
+
+.tran 20m
+.end

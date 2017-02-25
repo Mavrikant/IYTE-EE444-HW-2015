@@ -1,0 +1,72 @@
+
+.MODEL nfet NMOS (LEVEL=1 VTO= 0.7 LAMBDA=0.08 KP=110u)
+.MODEL pfet PMOS (LEVEL=1 VTO=-0.7 LAMBDA=0.09 KP=50u)
+
+
+* For diff mode gain
+M1000 Vdd_diff orta_diff orta_diff Vdd_diff pfet w=85 l=2
++  ad=510 pd=182 as=425 ps=180
+M1001 Vout_diff orta_diff Vdd_diff Vdd_diff pfet w=85 l=2
++  ad=425 pd=180 as=0 ps=0
+M1002 alt_diff input1_diff orta_diff Gnd nfet w=4 l=80
++  ad=44 pd=38 as=20 ps=18
+M1003 Vout_diff input2_diff alt_diff Gnd nfet w=4 l=80
++  ad=20 pd=18 as=0 ps=0
+M1004 alt_diff Vb1_diff a_61_n14#_diff Gnd nfet w=4 l=2
++  ad=0 pd=0 as=24 ps=20
+M1005 a_61_n14#_diff Vb2_diff Gnd Gnd nfet w=4 l=2
++  ad=0 pd=0 as=80 ps=64
+C0 Vdd_diff orta_diff 2.6fF
+C1 Gnd Gnd 11.7fF
+C2 Vb2_diff Gnd 6.1fF
+C3 Vb1_diff Gnd 6.1fF
+C4 input2_diff Gnd 48.0fF
+C5 input1_diff Gnd 48.0fF
+C6 Vout_diff Gnd 23.9fF
+C7 orta_diff Gnd 23.4fF
+C8 Vdd_diff Gnd 6.4fF
+
+
+V0 Vdd_diff Gnd 5
+V1 input1_diff input2_diff ac 1m
+V2 input2_diff Gnd 2.5
+
+V4 Vb1_diff Gnd 1.18
+V5 Vb2_diff Gnd 1.18
+
+* For Comm mode gain
+M1006 Vdd_com orta_com orta_com Vdd_com pfet w=85 l=2
++  ad=510 pd=182 as=425 ps=180
+M1007 Vout_com orta_com Vdd_com Vdd_com pfet w=85 l=2
++  ad=425 pd=180 as=0 ps=0
+M1008 alt_com input1_com orta_com Gnd nfet w=4 l=80
++  ad=44 pd=38 as=20 ps=18
+M1009 Vout_com input2_com alt_com Gnd nfet w=4 l=80
++  ad=20 pd=18 as=0 ps=0
+M1010 alt_com Vb1_com a_61_n14#_com Gnd nfet w=4 l=2
++  ad=0 pd=0 as=24 ps=20
+M1011 a_61_n14#_com Vb2_com Gnd Gnd nfet w=4 l=2
++  ad=0 pd=0 as=80 ps=64
+C9 Vdd_com orta_com 2.6fF
+C10 Gnd Gnd 11.7fF
+C11 Vb2_com Gnd 6.1fF
+C12 Vb1_com Gnd 6.1fF
+C13 input2_com Gnd 48.0fF
+C14 input1_com Gnd 48.0fF
+C15 Vout_com Gnd 23.9fF
+C16 orta_com Gnd 23.4fF
+C17 Vdd_com Gnd 6.4fF
+
+
+V6 Vdd_com Gnd 5
+V7 input1_com Vofset_com ac 1m
+V8 input2_com Vofset_com ac 1m
+V9 Vofset_com Gnd 2.5
+
+V10 Vb1_com Gnd 1.18
+V11 Vb2_com Gnd 1.18
+
+
+
+.ac oct 100 1 10000G
+.end
