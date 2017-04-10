@@ -10,7 +10,8 @@ M1000 vout vin vcc vcc pfet w=12 l=2
 M1001 vout vin gnd Gnd nfet w=6 l=2
 +  ad=36 pd=24 as=36 ps=24
 
-C0 gnd Gnd 3.8fF
+* SPICE language is case insensitive, ignore this Gnd-gnd cap.
+C0 gnd Gnd 3.8fF 
 C1 vout Gnd 2.1fF
 C2 vin Gnd 4.9fF
 
